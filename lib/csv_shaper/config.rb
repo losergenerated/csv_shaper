@@ -47,7 +47,7 @@ module CsvShaper
     #
     # Returns a Hash
     def defaults
-      @defaults ||= CSV::DEFAULT_OPTIONS.dup.merge(write_headers: true)
+      @defaults ||= CSV::DEFAULT_OPTIONS.dup.merge(write_headers => true)
     end
   end
 end
