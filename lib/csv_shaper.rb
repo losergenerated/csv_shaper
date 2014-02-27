@@ -1,7 +1,7 @@
 require 'active_support/ordered_hash'
 require 'active_support/inflector'
 
-CSV_KLASS = RUBY_VERSION > '1.9' ? CSV : FasterCsv
+CSV_KLASS = RUBY_VERSION > '1.9' ? CSV : FasterCSV
 
 require 'csv_shaper/version'
 require 'csv_shaper/header'
