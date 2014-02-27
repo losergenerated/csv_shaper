@@ -25,10 +25,10 @@ module CsvShaper
       csv_options = options.merge(local_options(local_config))
       
       rows = padded_rows.map do |data|
-        FasterCSV::Row.new(@header.mapped_columns, data, false)
+        CSV_KLASS::Row.new(@header.mapped_columns, data, false)
       end
       
-      table = FasterCSV::Table.new(rows)
+      table = CSV_KLASS::Table.new(rows)
       table.to_csv(csv_options)
     end
     
@@ -48,10 +48,10 @@ module CsvShaper
     # Returns an Array of Arrays
     def padded_rows
       rows = @rows.map do |row|
-        FasterCSV::Row.new(row.cells.keys, row.cells.values)
+        CSV_KLASS::Row.new(row.cells.keys, row.cells.values)
       end
       
-      table = FasterCSV::Table.new(rows)
+      table = CSV_KLASS::Table.new(rows)
       table.values_at(*@header.columns)
     end
   end
