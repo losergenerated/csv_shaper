@@ -1,7 +1,11 @@
 require 'active_support/ordered_hash'
 require 'active_support/inflector'
-
-CSV_KLASS = RUBY_VERSION > '1.9' ? CSV : FasterCSV
+if RUBY_VERSION > '1.9'
+  CSV_KLASS = CSV
+else
+  require 'faster_csv'
+  CSV_KLASS = FasterCSV
+end
 
 require 'csv_shaper/version'
 require 'csv_shaper/header'
